@@ -8,18 +8,26 @@ import plotly.graph_objects as go
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import spacy
+import os
 
 # Load NLP model (English)
 
 # Ensure the model is available before loading
 model_name = "en_core_web_sm"
 
+import os
+import spacy
+import subprocess
+
+model_name = "en_core_web_sm"
+
 try:
     nlp = spacy.load(model_name)
 except OSError:
     print(f"Downloading {model_name} model...")
-    os.system(f"python -m spacy download {model_name}")
+    subprocess.run(["python", "-m", "spacy", "download", model_name], check=True)
     nlp = spacy.load(model_name)
+
 
 # Predefined list of common skills
 SKILLS_DB = [
