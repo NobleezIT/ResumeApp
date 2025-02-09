@@ -8,4 +8,4 @@ transformers
 torch
 wordcloud
 plotly
-sklearn
+scikit-learn
