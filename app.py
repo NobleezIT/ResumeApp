@@ -9,7 +9,6 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import spacy
 import os
-import subprocess
 
 # Load NLP model (English)
 
@@ -17,12 +16,7 @@ import subprocess
 
 model_name = "en_core_web_sm"
 
-try:
-    nlp = spacy.load(model_name)
-except OSError:
-    print(f"Downloading {model_name} model...")
-    subprocess.run(["python", "-m", "spacy", "download", model_name], check=True)
-    nlp = spacy.load(model_name)
+nlp = spacy.load(model_name)
 
 
 # Predefined list of common skills
