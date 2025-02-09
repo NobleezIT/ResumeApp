@@ -9,15 +9,11 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import spacy
 import os
+import subprocess
 
 # Load NLP model (English)
 
 # Ensure the model is available before loading
-model_name = "en_core_web_sm"
-
-import os
-import spacy
-import subprocess
 
 model_name = "en_core_web_sm"
 
