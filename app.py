@@ -10,7 +10,16 @@ from sklearn.metrics.pairwise import cosine_similarity
 import spacy
 
 # Load NLP model (English)
-nlp = spacy.load("en_core_web_sm")
+
+# Ensure the model is available before loading
+model_name = "en_core_web_sm"
+
+try:
+    nlp = spacy.load(model_name)
+except OSError:
+    print(f"Downloading {model_name} model...")
+    os.system(f"python -m spacy download {model_name}")
+    nlp = spacy.load(model_name)
 
 # Predefined list of common skills
 SKILLS_DB = [
